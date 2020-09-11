@@ -1,4 +1,11 @@
-import { setOutput, info, warning, error } from "@actions/core";
+import {
+  setOutput,
+  info,
+  warning,
+  error,
+  startGroup,
+  endGroup,
+} from "@actions/core";
 
 // GitHub converts all input names to uppercase
 const INPUT_PREFIX = "INPUT_";
@@ -91,6 +98,11 @@ function getOutputs(conditional: string, inputs: Parameter[]): Parameter[] {
       });
     }
   }
+
+  startGroup(conditional);
+  console.log("INPUTS:", JSON.stringify(inputs, null, 2));
+  console.log("OUTPUTS:", JSON.stringify(outputs, null, 2));
+  endGroup();
   return outputs;
 }
 
@@ -100,6 +112,8 @@ function getIf(inputs: Parameter[]): Conditional {
   if (condition.length !== 1) {
     throw new Error(`Only one ${IF} expected. Found ${condition.length}.`);
   }
+
+  console.log(`getIf: ${JSON.stringify(condition, null, 2)}`);
 
   return {
     conditional: isTrue(condition[0].value),

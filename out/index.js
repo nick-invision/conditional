@@ -132,6 +132,10 @@ function getOutputs(conditional, inputs) {
             });
         }
     }
+    core_1.startGroup(conditional);
+    console.log("INPUTS:", JSON.stringify(inputs, null, 2));
+    console.log("OUTPUTS:", JSON.stringify(outputs, null, 2));
+    core_1.endGroup();
     return outputs;
 }
 function getIf(inputs) {
@@ -139,6 +143,7 @@ function getIf(inputs) {
     if (condition.length !== 1) {
         throw new Error("Only one " + IF + " expected. Found " + condition.length + ".");
     }
+    console.log("getIf: " + JSON.stringify(condition, null, 2));
     return {
         conditional: isTrue(condition[0].value),
         thens: getOutputs(IF_THEN, inputs),
