@@ -96,7 +96,6 @@ function getIf(inputs: Parameter[]): Conditional {
   const condition = inputs.filter((i) => getCondition(i.id) === IF);
 
   if (condition.length !== 1) {
-    console.log("***LOGS***", JSON.stringify(inputs, null, 2));
     throw new Error(`Only one ${IF} expected. Found ${condition.length}.`);
   }
 
@@ -157,6 +156,8 @@ function logResult(condition: string, outputs: Parameter[]): void {
 
 async function run() {
   const conditions = parseInputs();
+
+  console.log(`TEST DATA: ${JSON.stringify(conditions, null, 2)}`);
 
   if (conditions.if.conditional) {
     logResult(IF, conditions.if.thens);
