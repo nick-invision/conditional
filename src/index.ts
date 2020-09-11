@@ -17,7 +17,7 @@ const ELSE = "ELSE";
 const THEN = "THEN";
 
 // const inputs = {
-//   if: "false",
+//   if: "true",
 //   elseIf: "false",
 //   elseIf2: "true",
 //   elseIf3: "false",
@@ -26,25 +26,17 @@ const THEN = "THEN";
 
 // process.env = {
 //   ...process.env,
-//   INPUT_if: inputs.if,
-//   INPUT_ifThen_a: "then a",
-//   INPUT_ifThen_b: "then b",
-//   INPUT_ifThen_c: "then c",
-//   INPUT_elseIf: inputs.elseIf,
-//   INPUT_elseIfThen_a: "elseIfThen a",
-//   INPUT_elseIfThen_b: "elseIfThen b",
-//   INPUT_elseIfThen_c: "elseIfThen c",
-//   INPUT_elseIfA: inputs.elseIf2,
-//   INPUT_elseIfThenA_a: "elseIfThenA a",
-//   INPUT_elseIfThenA_b: "elseIfThenA b",
-//   INPUT_elseIfThenA_c: "elseIfThenA c",
-//   INPUT_elseIfB: inputs.elseIf3,
-//   INPUT_elseIfThenB_a: "elseIfThenB a",
-//   INPUT_elseIfThenB_b: "elseIfThenB b",
-//   INPUT_elseIfThenB_c: "elseIfThenB c",
-//   INPUT_else_a: "else a",
-//   INPUT_else_b: "else b",
-//   INPUT_else_c: "else c"
+//   INPUT_IF: "true",
+//   INPUT_IFTHEN_OUTA: "A",
+//   INPUT_IFTHEN_OUTB: "B",
+//   INPUT_IFTHEN_OUTC: "C",
+//   INPUT_ELSEIF: "false",
+//   INPUT_ELSEIFTHEN_OUTA: "D",
+//   INPUT_ELSEIFTHEN_OUTB: "E",
+//   INPUT_ELSEIFTHEN_OUTC: "F",
+//   INPUT_ELSE_OUTA: "G",
+//   INPUT_ELSE_OUTB: "H",
+//   INPUT_ELSE_OUTC: "I",
 // };
 
 interface Conditionals {
