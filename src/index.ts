@@ -163,12 +163,8 @@ function logResult(condition: string, outputs: Parameter[]): void {
 }
 
 async function run() {
-  startGroup("ZZZ");
-  console.log(
-    Object.keys(process.env)
-      .filter((k) => k.startsWith("INPUT"))
-      .sort((a, b) => (a > b ? 1 : -1))
-  );
+  startGroup("ENV");
+  console.log(JSON.stringify(process.env, null, 2));
   endGroup();
   const conditions = parseInputs();
 
