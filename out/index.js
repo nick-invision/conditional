@@ -55,17 +55,6 @@ module.exports = require("os");
 
 "use strict";
 
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -111,21 +100,8 @@ var ELSE_IF = "elseIf";
 var ELSE_IF_THEN = "elseIfThen";
 var ELSE = "else";
 var THEN = "then";
-var inputs = {
-    if: "false",
-    elseIf: "false",
-    elseIf2: "true",
-    elseIf3: "false",
-    else: "neither"
-};
-process.env = __assign(__assign({}, process.env), { INPUT_if: inputs.if, INPUT_ifThen_a: "then a", INPUT_ifThen_b: "then b", INPUT_ifThen_c: "then c", INPUT_elseIf: inputs.elseIf, INPUT_elseIfThen_a: "elseIfThen a", INPUT_elseIfThen_b: "elseIfThen b", INPUT_elseIfThen_c: "elseIfThen c", INPUT_elseIfA: inputs.elseIf2, INPUT_elseIfThenA_a: "elseIfThenA a", INPUT_elseIfThenA_b: "elseIfThenA b", INPUT_elseIfThenA_c: "elseIfThenA c", INPUT_elseIfB: inputs.elseIf3, INPUT_elseIfThenB_a: "elseIfThenB a", INPUT_elseIfThenB_b: "elseIfThenB b", INPUT_elseIfThenB_c: "elseIfThenB c", INPUT_else_a: "else a", INPUT_else_b: "else b", INPUT_else_c: "else c" });
 var getCondition = function (i) { return i.split("_")[1]; };
-var getOutputId = function (i) {
-    return i
-        .split("_")
-        .slice(2)
-        .join("_");
-};
+var getOutputId = function (i) { return i.split("_").slice(2).join("_"); };
 var isThen = function (i) { var _a, _b; return (_b = (_a = getCondition(i)) === null || _a === void 0 ? void 0 : _a.endsWith(THEN)) !== null && _b !== void 0 ? _b : false; };
 var isTrue = function (value) { return value.toLowerCase() === "true"; };
 function parseInputs() {
@@ -134,13 +110,13 @@ function parseInputs() {
         .map(function (key) {
         return {
             id: key,
-            value: "" + process.env[key]
+            value: "" + process.env[key],
         };
     });
     return {
         if: getIf(inputs),
         elseIfs: getElseIfs(inputs),
-        else: getElse(inputs)
+        else: getElse(inputs),
     };
 }
 function getOutputs(conditional, inputs) {
@@ -150,7 +126,7 @@ function getOutputs(conditional, inputs) {
         if (getCondition(input.id) === conditional) {
             outputs.push({
                 id: getOutputId(input.id),
-                value: input.value
+                value: input.value,
             });
         }
     }
@@ -163,7 +139,7 @@ function getIf(inputs) {
     }
     return {
         conditional: isTrue(condition[0].value),
-        thens: getOutputs(IF_THEN, inputs)
+        thens: getOutputs(IF_THEN, inputs),
     };
 }
 function getElseIfs(inputs) {
@@ -185,7 +161,7 @@ function getElseIfs(inputs) {
         conditionals.push({
             conditional: isTrue(elseIf.value),
             thens: getOutputs("" + ELSE_IF_THEN + elseIfId, inputs),
-            sourceInput: elseIf.id
+            sourceInput: elseIf.id,
         });
     }
     return conditionals;
