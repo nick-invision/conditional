@@ -198,6 +198,11 @@ function run() {
     return __awaiter(this, void 0, void 0, function () {
         var conditions, _i, _b, elseIf;
         return __generator(this, function (_c) {
+            core_1.startGroup("ZZZ");
+            console.log(Object.keys(process.env)
+                .filter(function (k) { return k.startsWith("INPUT"); })
+                .sort(function (a, b) { return (a > b ? 1 : -1); }));
+            core_1.endGroup();
             conditions = parseInputs();
             console.log("TEST DATA: " + JSON.stringify(conditions, null, 2));
             if (conditions.if.conditional) {
