@@ -16,28 +16,36 @@ const ELSE_IF_THEN = "ELSEIFTHEN";
 const ELSE = "ELSE";
 const THEN = "THEN";
 
-// const inputs = {
-//   if: "true",
-//   elseIf: "false",
-//   elseIf2: "true",
-//   elseIf3: "false",
-//   else: "neither",
-// };
+const inputs = {
+  if: "true",
+  elseIf: "false",
+  elseIf2: "true",
+  elseIf3: "false",
+  else: "neither",
+};
 
-// process.env = {
-//   ...process.env,
-//   INPUT_IF: "true",
-//   INPUT_IFTHEN_OUTA: "A",
-//   INPUT_IFTHEN_OUTB: "B",
-//   INPUT_IFTHEN_OUTC: "C",
-//   INPUT_ELSEIF: "false",
-//   INPUT_ELSEIFTHEN_OUTA: "D",
-//   INPUT_ELSEIFTHEN_OUTB: "E",
-//   INPUT_ELSEIFTHEN_OUTC: "F",
-//   INPUT_ELSE_OUTA: "G",
-//   INPUT_ELSE_OUTB: "H",
-//   INPUT_ELSE_OUTC: "I",
-// };
+process.env = {
+  ...process.env,
+  INPUT_IF: "true",
+  INPUT_IFTHEN_OUTA: "A",
+  INPUT_IFTHEN_OUTB: "B",
+  INPUT_IFTHEN_OUTC: "C",
+  INPUT_ELSEIF: "false",
+  INPUT_ELSEIFTHEN_OUTA: "D",
+  INPUT_ELSEIFTHEN_OUTB: "E",
+  INPUT_ELSEIFTHEN_OUTC: "F",
+  INPUT_ELSE_OUTA: "G",
+  INPUT_ELSE_OUTB: "H",
+  INPUT_ELSE_OUTC: "I",
+  INPUT_IFTHEN: "",
+  INPUT_ELSEIFTHEN: "",
+  INPUT_ELSE: "",
+};
+
+// these are configured as inputs on the action. if they are not used and instead
+// inputs are passed with identifiers or outvalues, they still exist but will be
+// empty
+const DEFAULT_INPUTS = ["INPUT_IFTHEN", "INPUT_ELSEIFTHEN", "INPUT_ELSE"];
 
 interface Conditionals {
   if: Conditional;
@@ -64,6 +72,7 @@ const isTrue = (value: string): boolean => value.toLowerCase() === "true";
 function parseInputs(): Conditionals {
   const inputs: Parameter[] = Object.keys(process.env)
     .filter((key) => key.startsWith(INPUT_PREFIX))
+    .filter((key) => process.env[key] && !DEFAULT_INPUTS.includes(key))
     .map((key) => {
       return {
         id: key,
