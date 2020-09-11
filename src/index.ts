@@ -43,8 +43,7 @@ process.env = {
 };
 
 // these are configured as inputs on the action. if they are not used and instead
-// inputs are passed with identifiers or outvalues, they still exist but will be
-// empty
+// inputs are passed with identifiers or outvalues, they still exist but will be empty
 const DEFAULT_INPUTS = ["INPUT_IFTHEN", "INPUT_ELSEIFTHEN", "INPUT_ELSE"];
 
 interface Conditionals {
@@ -79,8 +78,6 @@ function parseInputs(): Conditionals {
         value: `${process.env[key]}`,
       };
     });
-
-  console.log("INPUTS", JSON.stringify(inputs, null, 2));
 
   return {
     if: getIf(inputs),
@@ -172,9 +169,6 @@ function logResult(condition: string, outputs: Parameter[]): void {
 }
 
 async function run() {
-  startGroup("ENV");
-  console.log(JSON.stringify(process.env, null, 2));
-  endGroup();
   const conditions = parseInputs();
 
   console.log(`TEST DATA: ${JSON.stringify(conditions, null, 2)}`);
