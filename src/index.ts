@@ -1,12 +1,13 @@
 import { setOutput, info, warning, error } from "@actions/core";
 
+// GitHub converts all input names to uppercase
 const INPUT_PREFIX = "INPUT_";
-const IF = "if";
-const IF_THEN = "ifThen";
-const ELSE_IF = "elseIf";
-const ELSE_IF_THEN = "elseIfThen";
-const ELSE = "else";
-const THEN = "then";
+const IF = "IF";
+const IF_THEN = "IFTHEN";
+const ELSE_IF = "ELSEIF";
+const ELSE_IF_THEN = "ELSEIFTHEN";
+const ELSE = "ELSE";
+const THEN = "THEN";
 
 // const inputs = {
 //   if: "false",

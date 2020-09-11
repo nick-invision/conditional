@@ -93,13 +93,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(470);
+// GitHub converts all input names to uppercase
 var INPUT_PREFIX = "INPUT_";
-var IF = "if";
-var IF_THEN = "ifThen";
-var ELSE_IF = "elseIf";
-var ELSE_IF_THEN = "elseIfThen";
-var ELSE = "else";
-var THEN = "then";
+var IF = "IF";
+var IF_THEN = "IFTHEN";
+var ELSE_IF = "ELSEIF";
+var ELSE_IF_THEN = "ELSEIFTHEN";
+var ELSE = "ELSE";
+var THEN = "THEN";
 var getCondition = function (i) { return i.split("_")[1]; };
 var getOutputId = function (i) { return i.split("_").slice(2).join("_"); };
 var isThen = function (i) { var _a, _b; return (_b = (_a = getCondition(i)) === null || _a === void 0 ? void 0 : _a.endsWith(THEN)) !== null && _b !== void 0 ? _b : false; };
