@@ -221,7 +221,9 @@ function run() {
         var conditions, _i, _b, elseIf;
         return __generator(this, function (_c) {
             conditions = parseInputs();
-            console.log("TEST DATA: " + JSON.stringify(conditions, null, 2));
+            core_1.startGroup("TEST DATA");
+            console.log(JSON.stringify(conditions, null, 2));
+            core_1.endGroup();
             if (conditions.if.conditional) {
                 logResult(IF, conditions.if.thens);
                 setOutputs(conditions.if.thens);

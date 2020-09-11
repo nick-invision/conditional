@@ -171,7 +171,9 @@ function logResult(condition: string, outputs: Parameter[]): void {
 async function run() {
   const conditions = parseInputs();
 
-  console.log(`TEST DATA: ${JSON.stringify(conditions, null, 2)}`);
+  startGroup("TEST DATA");
+  console.log(JSON.stringify(conditions, null, 2));
+  endGroup();
 
   if (conditions.if.conditional) {
     logResult(IF, conditions.if.thens);
