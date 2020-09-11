@@ -194,21 +194,21 @@ function run() {
         return __generator(this, function (_c) {
             conditions = parseInputs();
             if (conditions.if.conditional) {
-                setOutputs(conditions.if.thens);
                 logResult(IF, conditions.if.thens);
+                setOutputs(conditions.if.thens);
                 return [2 /*return*/];
             }
             for (_i = 0, _b = conditions.elseIfs; _i < _b.length; _i++) {
                 elseIf = _b[_i];
                 if (elseIf.conditional) {
-                    setOutputs(elseIf.thens);
                     logResult((_a = elseIf.sourceInput) !== null && _a !== void 0 ? _a : ELSE_IF, elseIf.thens);
+                    setOutputs(elseIf.thens);
                     return [2 /*return*/];
                 }
             }
             if (conditions.else.length > 0) {
-                setOutputs(conditions.else);
                 logResult(ELSE, conditions.else);
+                setOutputs(conditions.else);
                 return [2 /*return*/];
             }
             core_1.warning("Nothing evaluated to true so no outputs were set");

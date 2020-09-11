@@ -158,22 +158,22 @@ async function run() {
   const conditions = parseInputs();
 
   if (conditions.if.conditional) {
-    setOutputs(conditions.if.thens);
     logResult(IF, conditions.if.thens);
+    setOutputs(conditions.if.thens);
     return;
   }
 
   for (const elseIf of conditions.elseIfs) {
     if (elseIf.conditional) {
-      setOutputs(elseIf.thens);
       logResult(elseIf.sourceInput ?? ELSE_IF, elseIf.thens);
+      setOutputs(elseIf.thens);
       return;
     }
   }
 
   if (conditions.else.length > 0) {
-    setOutputs(conditions.else);
     logResult(ELSE, conditions.else);
+    setOutputs(conditions.else);
     return;
   }
 
