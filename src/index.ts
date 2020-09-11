@@ -72,6 +72,8 @@ function parseInputs(): Conditionals {
       };
     });
 
+  console.log("INPUTS", JSON.stringify(inputs, null, 2));
+
   return {
     if: getIf(inputs),
     elseIfs: getElseIfs(inputs),

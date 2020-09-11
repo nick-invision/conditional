@@ -38,11 +38,11 @@ Basic example with 3 outputs and a single if, elseIf, else configuration.
 - uses: nick-invision/conditional
   id: conditionals
   with:
-    if: github.event_name == 'pull_request'
+    if: ${{ github.event_name == 'pull_request' }}
     ifThen_outA: This is a pull request; conditional output A
     ifThen_outB: This is a pull request; conditional output B
     ifThen_outC: This is a pull request; conditional output C
-    elseIf: github.event_name == 'push'
+    elseIf: ${{ github.event_name == 'push' }}
     elseIfThen_outA: This is a push; conditional output A
     elseIfThen_outB: This is a push; conditional output B
     elseIfThen_outC: This is a push; conditional output C
@@ -58,19 +58,19 @@ An example with multiple elseIf statements
 - uses: nick-invision/conditional
   id: conditionals
   with:
-    if: github.event_name == 'pull_request'
+    if: ${{ github.event_name == 'pull_request' }}
     ifThen_outA: This is a pull request; conditional output A
     ifThen_outB: This is a pull request; conditional output B
     ifThen_outC: This is a pull request; conditional output C
-    elseIf1: github.event_name == 'push'
+    elseIf1: ${{ github.event_name == 'push' }}
     elseIfThen1_outA: This is a push; conditional output A
     elseIfThen1_outB: This is a push; conditional output B
     elseIfThen1_outC: This is a push; conditional output C
-    elseIf2: github.event_name == 'label'
+    elseIf2: ${{ github.event_name == 'label' }}
     elseIfThen2_outA: This is a label; conditional output A
     elseIfThen2_outB: This is a label; conditional output B
     elseIfThen2_outC: This is a label; conditional output C
-    elseIf3: github.event_name == 'issue'
+    elseIf3: ${{ github.event_name == 'issue' }}
     elseIfThen3_outA: This is a issue; conditional output A
     elseIfThen3_outB: This is a issue; conditional output B
     elseIfThen3_outC: This is a issue; conditional output C

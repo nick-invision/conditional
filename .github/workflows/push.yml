@@ -23,7 +23,7 @@ jobs:
           ifThen_outA: A
           ifThen_outB: B
           ifThen_outC: C
-          elseIf: github.event_name == 'pull_request'
+          elseIf: ${{ github.event_name == 'pull_request' }}
           elseIfThen_outA: D
           elseIfThen_outB: E
           elseIfThen_outC: F
@@ -34,11 +34,11 @@ jobs:
       - uses: ./
         id: single-elseIf-test
         with:
-          if: github.event_name == 'pull_request'
+          if: ${{ github.event_name == 'pull_request' }}
           ifThen_outA: A
           ifThen_outB: B
           ifThen_outC: C
-          elseIf: github.event_name == 'push'
+          elseIf: ${{ github.event_name == 'push' }}
           elseIfThen_outA: D
           elseIfThen_outB: E
           elseIfThen_outC: F
@@ -49,19 +49,19 @@ jobs:
       - uses: ./
         id: multi-elseIf-test
         with:
-          if: github.event_name == 'pull_request'
+          if: ${{ github.event_name == 'pull_request' }}
           ifThen_outA: A
           ifThen_outB: B
           ifThen_outC: C
-          elseIf1: github.event_name == 'label'
+          elseIf1: ${{ github.event_name == 'label' }}
           elseIfThen1_outA: D
           elseIfThen1_outB: E
           elseIfThen1_outC: F
-          elseIf2: github.event_name == 'push'
+          elseIf2: ${{ github.event_name == 'push' }}
           elseIfThen2_outA: G
           elseIfThen2_outB: H
           elseIfThen2_outC: I
-          elseIf3: github.event_name == 'issue'
+          elseIf3: ${{ github.event_name == 'issue' }}
           elseIfThen3_outA: J
           elseIfThen3_outB: K
           elseIfThen3_outC: L
@@ -72,19 +72,19 @@ jobs:
       - uses: ./
         id: else-test
         with:
-          if: github.event_name == 'pull_request'
+          if: ${{ github.event_name == 'pull_request' }}
           ifThen_outA: A
           ifThen_outB: B
           ifThen_outC: C
-          elseIf1: github.event_name == 'label'
+          elseIf1: ${{ github.event_name == 'label' }}
           elseIfThen1_outA: D
           elseIfThen1_outB: E
           elseIfThen1_outC: F
-          elseIf2: github.event_name == 'issue'
+          elseIf2: ${{ github.event_name == 'issue' }}
           elseIfThen2_outA: G
           elseIfThen2_outB: H
           elseIfThen2_outC: I
-          elseIf3: github.event_name == 'push'
+          elseIf3: ${{ github.event_name == 'push' }}
           elseIfThen3_outA: J
           elseIfThen3_outB: K
           elseIfThen3_outC: L
