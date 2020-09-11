@@ -135,6 +135,7 @@ function getOutputs(conditional, inputs) {
 function getIf(inputs) {
     var condition = inputs.filter(function (i) { return getCondition(i.id) === IF; });
     if (condition.length !== 1) {
+        console.log(JSON.stringify(inputs, null, 2));
         throw new Error("Only one " + IF + " expected. Found " + condition.length + ".");
     }
     return {
