@@ -174,6 +174,7 @@ function getElse(inputs) {
 function setOutputs(thens) {
     for (var _i = 0, thens_1 = thens; _i < thens_1.length; _i++) {
         var param = thens_1[_i];
+        core_1.info("name: " + param.id + "; value: " + param.value);
         core_1.setOutput(param.id, param.value);
     }
 }

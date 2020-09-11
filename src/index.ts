@@ -139,6 +139,7 @@ function getElse(inputs: Parameter[]): Parameter[] {
 
 function setOutputs(thens: Parameter[]): void {
   for (const param of thens) {
+    info(`name: ${param.id}; value: ${param.value}`);
     setOutput(param.id, param.value);
   }
 }
