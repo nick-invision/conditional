@@ -19,7 +19,7 @@ jobs:
       - uses: ./
         id: if-test
         with:
-          if: github.event_name == 'push'
+          if: ${{ github.event_name == 'push' }}
           ifThen_outA: A
           ifThen_outB: B
           ifThen_outC: C
