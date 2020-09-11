@@ -1,0 +1,21 @@
+name: Conditional
+description: Conditionally sets outputs
+inputs:
+  if:
+    description: Expression to evaluate for if
+    required: true
+  ifThen:
+    description: Output id and value if IF evalutes to true.  Format input as ifThen[optionalID]_[output name]
+    required: false
+  elseIf:
+    description: Optional expression to evaluate if the previous expression is false.  Multiple ifThens can be specified in the format of elseIf[identifier], [identifier] will then have to be associated with each elseIfThen
+    required: false
+  elseIfThen:
+    description: Output id and value when elseIf expression evaluates to true.  If multiple elseIfs are specified, then the [identifier] for elseIf must match corresponding elseIfThens
+    required: false
+  else:
+    description: Evaluates when all previous expressions are false.  Multiple else outputs can be specified in the format of else_[output name]
+    required: false
+runs:
+  using: node12
+  main: out/index.js
